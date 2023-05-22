@@ -848,7 +848,6 @@ name VARCHAR(50) NOT NULL
     coordinates2 = list(map(int, input('Въведете координатите на точка B: ').split()))
     A = np.array(coordinates1)
     B = np.array(coordinates2)
-
     v1 = A - B
     print(v1)
 
