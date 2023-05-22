@@ -729,109 +729,139 @@ name VARCHAR(50) NOT NULL
 //TEMA 9 
     
     
-1. SELECT card_number, job_during_journey FROM travel_cards
+1. 
+    SELECT card_number, job_during_journey FROM travel_cards
 
-ORDER BY card_number ASC;
+    ORDER BY card_number ASC;
 
-2. SELECT id, CONCAT(first_name, ' ', last_name), ucn FROM colonists
+2.
+    SELECT id, CONCAT(first_name, ' ', last_name), ucn FROM colonists
 
-ORDER BY first_name ASC, last_name ASC, id ASC;
+    ORDER BY first_name ASC, last_name ASC, id ASC;
 
-3. SELECT s.name AS 'spaceship_name', sp.name AS 'spaceport_name' FROM spaceships AS s
+3. 
+    SELECT s.name AS 'spaceship_name', sp.name AS 'spaceport_name' FROM spaceships AS s
 
-INNER JOIN journey AS j ON s.id = j.spaceship_id
+    INNER JOIN journey AS j ON s.id = j.spaceship_id
 
-INNER JOIN spaceports AS sp ON sp.id = j.destination_spaceport_id
+    INNER JOIN spaceports AS sp ON sp.id = j.destination_spaceport_id
 
-ORDER BY light_speed_rate DESC LIMIT 1;
+    ORDER BY light_speed_rate DESC LIMIT 1;
     
     
 // tema 15
     
     cd ~
 
-mkdir mydir
+    mkdir mydir
 
-cd mydir
+    cd mydir
 
-mkdir colors shapes animals
+    mkdir colors shapes animals
 
-cd animals
+    cd animals
 
-mkdir reptiles mammals
+    mkdir reptiles mammals
 
-cd ../colors
+    cd ../colors
 
-touch red green blue
+    touch red green blue
 
-echo '#ff0000' > red
+    echo '#ff0000' > red
 
-echo '#00ff00' > green
+    echo '#00ff00' > green
 
-echo '#0000ff' > blue
+    echo '#0000ff' > blue
 
-cd ../../
+    cd ../../
 
-zip -r mydir.zip mydir
+    zip -r mydir.zip mydir
     
     
 //TEMA 16 Phyton
-1задача
-import math
-import matplotlib.pyplot as plt
-import numpy as np
+1 задача ->
+    import math
+    import matplotlib.pyplot as plt
+    import numpy as np
+    a = np.array([ [1,2,5], [1, -1, 2], [3, -6, -1] ]) # 
+    b = np.array([-9,3,25]) #
+    x = np.linalg.solve(a,  b) #
+    print(x) # решение на системата: [ 2. -3. -1.]
 
+2 задача ->
+    import matplotlib.pyplot as plt
+    import numpy as np
+    temperature = np.array([15, 13, 12, 12, 19, 22, 21, 18])
+    print(f'Средна дневна температура: {np.mean(temperature) }')
+    
+    
+3 задача ->
+    import matplotlib.pyplot as plt
+    import numpy as np
+    temperature = np.array([15, 13, 12, 12, 19, 22, 21, 18])
+    hours = np.array(["0:00", "3:00", "6:00", "9:00", "12:00", "15:00", "18:00", "21:00"])
+    plt.plot(hours, temperature)
+    plt.xlabel('Час') #добавяме апострофи
+    plt.ylabel('Температура') #добавяме скобите
+    plt.title('Графика на температурата през дененощието')
+    plt.show() #добавяме скобите
+    
+    
+4 задача ->
+    import numpy as np
+    data = []
+    for i in range(3): #добавихме 3 в скобите
+        row = list(map(int, input().split())) #таб навътре
+        data.append(row) #таб навътре
+    matrix = np.array(data)
+    n = float(input('Enter a number: '))
+    result = np.multiply(matrix, n) #multiply
+    print(result)
+    
+    
+ 5 задача ->
+    import numpy as np
+    data = []
+    for i in range(2):
+        row = list(map(int, input().split()))
+        data.append(row)
+    matrix = np.array(data)
+    n = float(input('Enter a number: '))
+    result = np.multiply(matrix, n)
+    print(result)
+    
+    
+//TEMA 17
+    
+1 задача -> 
+    import numpy as np
+    coordinates1 = list(map(int, input('Въведете координатите на точка А: ').split()))
+    coordinates2 = list(map(int, input('Въведете координатите на точка B: ').split())) #copy-paste
+    A = np.array(coordinates1)
+    B = np.array(coordinates2) #coordinates2 липсва
+    v1 = B + A #липсваше +
+    print(v1)
 
-a = np.array([ [1,2,5], [1, -1, 2], [3, -6, -1] ]) # 
-b = np.array([-9,3,25]) #
-x = np.linalg.solve(a,  b) #
-print(x) # решение на системата: [ 2. -3. -1.]
+2 задача -> 
+    import numpy as np
+    coordinates1 = list(map(int, input('Въведете координатите на точка А: ').split()))
+    coordinates2 = list(map(int, input('Въведете координатите на точка B: ').split()))
+    A = np.array(coordinates1)
+    B = np.array(coordinates2)
 
-2 задача
-import matplotlib.pyplot as plt
-import numpy as np
-temperature = np.array([15, 13, 12, 12, 19, 22, 21, 18])
-print(f'Средна дневна температура: {np.mean(temperature) }')
+    v1 = A - B
+    print(v1)
+
+3 задача ->
+    import numpy as np
+    coordinates1 = list(map(int, input('Въведете координатите на точка А: ').split()))
+    coordinates2 = list(map(int, input('Въведете координатите на точка B: ').split()))
+    A = np.array(coordinates1)
+    B = np.array(coordinates2) #липсваше coordinates2
+    v1 = B - A
+    length = np.linalg.norm(v1) #липсваше norm
+    print(length)
     
     
-3 задача
-import matplotlib.pyplot as plt
-import numpy as np
-temperature = np.array([15, 13, 12, 12, 19, 22, 21, 18])
-hours = np.array(["0:00", "3:00", "6:00", "9:00", "12:00", "15:00", "18:00", "21:00"])
-plt.plot(hours, temperature)
-plt.xlabel('Час') #добавяме апострофи
-plt.ylabel('Температура') #добавяме скобите
-plt.title('Графика на температурата през дененощието')
-plt.show() #добавяме скобите
+4 задача ->
     
-    
-4 задача
-import numpy as np
-data = []
-for i in range(3): #добавихме 3 в скобите
-    row = list(map(int, input().split())) #таб навътре
-    data.append(row) #таб навътре
-matrix = np.array(data)
-n = float(input('Enter a number: '))
-result = np.multiply(matrix, n) #multiply
-print(result)
-    
-    
- 5 задача
- import numpy as np
-data = []
-for i in range(2):
-    row = list(map(int, input().split()))
-    data.append(row)
-matrix = np.array(data)
-n = float(input('Enter a number: '))
-result = np.multiply(matrix, n)
-print(result)
-    
-    
-//TEMA 16
-    задача
-    задача
-    задача
-    задача
